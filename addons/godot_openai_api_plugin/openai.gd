@@ -35,7 +35,7 @@ func request(input: String) -> void:
 		push_error("an error occured during HTTP request")
 
 
-func _http_request_completed(result, response_code, headers, body):
+func _http_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
