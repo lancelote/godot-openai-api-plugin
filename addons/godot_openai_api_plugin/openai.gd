@@ -12,7 +12,7 @@ func load_api_key_from_env() -> void:
 		push_error("OpenAI API key is not set")
 
 
-func request() -> void:
+func request(input: String) -> void:
 	var http := HTTPRequest.new()
 	add_child(http)
 	http.request_completed.connect(_http_request_completed)
@@ -26,7 +26,7 @@ func request() -> void:
 
 	var data := {
 		"model": model,
-		"input": "Write a one-sentence bedtime story about a unicorn."
+		"input": input,
 	}
 	var body := JSON.stringify(data)
 	
