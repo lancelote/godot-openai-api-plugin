@@ -39,4 +39,5 @@ func _http_request_completed(result: int, response_code: int, headers: PackedStr
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
+
+	print(response["output"]["content"]["text"])
